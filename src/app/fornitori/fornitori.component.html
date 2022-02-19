@@ -1,0 +1,23 @@
+<app-fornitori-list [fornitoriList]="fornitoriList"></app-fornitori-list>
+
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 ">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" formControlName="nome">
+              </div>
+              <div class="form-group">
+                <label for="nazionalita">Nazionalità</label>
+                <select formControlName="nazionalita">
+                    <option value="italiano">italiano</option>
+                    <option value="estero">estero</option>
+                </select>
+              </div>  
+              <button class="btn btn-success" type="submit" [disabled]="!form.valid">Add</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  

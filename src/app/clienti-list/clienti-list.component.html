@@ -1,0 +1,34 @@
+<div class="row">
+
+  <div class="col-md-4">
+    <router-outlet>
+    </router-outlet>
+  </div>
+
+  <div class="col-md-3">
+    <app-fornitori></app-fornitori>
+  </div>
+
+  <div class="scrollClass">
+   <div class="col-md-5">
+    <p id="element1" >Lista Clienti</p>
+    <button id="element2" class="btn btn-primary glyphicon glyphicon-plus" routerLink="new"></button>
+     
+    <a
+    class="list-group-item clearfix" style="margin: 20px; height: 100px;cursor: pointer;"
+    *ngFor="let cliente of clienti; let i=index"
+    >
+    <div class="pull-right">
+      <button class="btn btn-danger glyphicon glyphicon-remove" (click)="removeClient(i)"></button>
+      <button class="btn glyphicon glyphicon-pencil" [routerLink]="cliente.codiceFiscale+'/edit'"></button>
+    </div>
+     <div class="pull-left" [routerLink]="cliente.codiceFiscale">
+        <p id="element1">{{cliente.cognome}}</p>
+        <p id="element2">{{cliente.nome}}</p>
+        <p>{{cliente.codiceFiscale}}</p>
+        <p>{{cliente.nazionalita}}</p> 
+     </div>
+    </a>
+   </div>
+  </div>
+</div>

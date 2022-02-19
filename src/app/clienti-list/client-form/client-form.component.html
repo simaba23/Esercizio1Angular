@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 ">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" formControlName="nome">
+              <span class="help-block" *ngIf="!form.get('nome')?.valid
+              && form.get('nome')?.touched">Inserisci il nome</span>
+            </div>
+            <div class="form-group">
+              <label for="cognome">Cognome</label>
+              <input type="text" formControlName="cognome">
+              <span class="help-block" *ngIf="!form.get('cognome')?.valid
+              && form.get('cognome')?.touched">Inserisci il cognome</span>
+            </div>
+            <div class="form-group">
+              <label for="nazionalita">Nazionalità</label>
+              <select formControlName="nazionalita">
+                  <option value="italiano">italiano</option>
+                  <option value="estero">estero</option>
+              </select>
+              <span class="help-block" *ngIf="!form.get('nazionalita')?.valid
+              && form.get('nazionalita')?.touched">Inserisci la nazionalita</span>
+            </div> 
+            <div class="form-group">
+              <label for="cf">Codice Fiscale</label>
+              <input type="text" formControlName="cf">
+              <span class="help-block" *ngIf="!form.get('cf')?.valid
+                && form.get('cf')?.touched">CF obbligatorio</span>
+            </div>
+            <div class="radio" *ngFor="let s of sesso">
+                <label><input type="radio" formControlName="sesso" [value]="s">{{s}}</label>
+            </div>
+            <div class="form-group">
+                <label for="dataNascita">Data Nascita</label>
+                <input type="date" formControlName="dataNascita">
+                <span class="help-block" *ngIf="!form.get('dataNascita')?.valid
+                && form.get('dataNascita')?.touched">Il cliente non può essere minorenne</span>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Conferma</button>
+        </form>
+    </div>
+  </div>
+</div>

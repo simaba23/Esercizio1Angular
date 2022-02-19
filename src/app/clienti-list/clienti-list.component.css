@@ -1,0 +1,15 @@
+.scrollClass {
+    height:500px;
+    overflow-y: scroll;
+  }
+
+.list-group-item{
+    width: 300px;
+  }
+
+  #element1 {display:inline-block;margin-right:7px} 
+  #element2 {display:inline-block} 
+
+  .btn{
+    size: 5px;
+  } 
